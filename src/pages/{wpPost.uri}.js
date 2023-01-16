@@ -1,7 +1,8 @@
 import React from "react";
+import ReactDomServer from 'react-dom/server'
 import { graphql } from "gatsby";
 import { Image } from "gatsby-plugin-image";
-
+const cheerio = require('cheerio');
 import "../styles/global.css";
 import HtmlReactParser from "html-react-parser";
 
@@ -47,27 +48,20 @@ const processImage = (node) => {
   }
 };
 
-const PostTemplate = ({ data }) => {
-  console.log(data.post);
+const removeInlineStyles = (html) => {
+  const $ = cheerio.load(html);
+  $('*[style]').removeAttr('style');
+  return $.html();
+};
 
-  const removeInlineStyles = (html) => {
-    const options = {
-      transform: function (node) {
-        if (node.name === "style") {
-          return null;
-        }
-        if (node.attribs && node.attribs.style) {
-          delete node.attribs.style;
-        }
-        return node;
-      },
-    };
-    const cleanHtml = HtmlReactParser(html, options);
-    // console.log(HtmlReactParser.convert(cleanHtml));
-    return HtmlReactParser(cleanHtml);
-  };
-  console.log(data.post.content);
-  const cleanedHtml = removeInlineStyles(data.post.content);
+const PostTemplate = ({ data }) => {
+  
+
+ 
+  // const con = data.post.content;
+  
+  const cleanedHtml = HtmlReactParser(removeInlineStyles(data.post.content));
+  
   const content = HtmlReactParser(cleanedHtml, {
     transform: processImage,
   });
