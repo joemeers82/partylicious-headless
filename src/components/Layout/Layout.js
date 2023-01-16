@@ -9,7 +9,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 // import MainNav from "../MainNav/MainNav"
 import Header from "../Header/Header";
-import SEO from "../SEO/Seo";
+
 import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = ({ children }) => {
@@ -25,14 +25,13 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO></SEO>
       <Header siteTitle={data.site.siteMetadata?.title || `Partylicious`} />
 
-      <div>
-        <main>{children}</main>
+      <div className="flex">
+        <main className="text-lg font-light">{children}</main>
         <Sidebar></Sidebar>
-        <footer></footer>
       </div>
+      <footer></footer>
     </>
   );
 };

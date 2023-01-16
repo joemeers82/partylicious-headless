@@ -1,6 +1,6 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import MainNav from "../MainNav/MainNav"
+import * as React from "react";
+import { Link } from "gatsby";
+import MainNav from "../MainNav/MainNav";
 
 const Header = ({ siteTitle }) => (
   <header
@@ -14,6 +14,6 @@ const Header = ({ siteTitle }) => (
   >
     <MainNav></MainNav>
   </header>
-)
+);
 
-export default Header
+export default Header;

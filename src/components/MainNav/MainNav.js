@@ -16,17 +16,19 @@ const MainNav = () => {
       <Link to="/">
         <img src={headerImage} alt={altTag} />
       </Link>
-      {recipeMenu.map((menuItem) => (
-        <li key={menuItem.id}>
-          <Link to={menuItem.url}>{menuItem.label}</Link>
+      <ul className="flex">
+        {recipeMenu.map((menuItem) => (
+          <li key={menuItem.id}>
+            <Link to={menuItem.url}>{menuItem.label}</Link>
+          </li>
+        ))}
+        <li className="mobileMenuItem">
+          <Link to="/">Home</Link>
         </li>
-      ))}
-      <li className="mobileMenuItem">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="mobileMenuItem">
-        <Link to="/about">About</Link>
-      </li>
+        <li className="mobileMenuItem">
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
     </>
   );
 };
