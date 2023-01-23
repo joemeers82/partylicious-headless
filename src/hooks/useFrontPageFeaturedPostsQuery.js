@@ -1,22 +1,23 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby";
 
-export const useFrontPageFeaturedPosts = () =>{
+export const useFrontPageFeaturedPosts = () => {
   const data = useStaticQuery(graphql`
-  query FrontPageTopPosts {
-    allWp {
-      nodes {
-        themeGeneralSettings {
-          themeOptions {
-            frontPageFeaturedPosts {
-              post {
-                ... on WpPost {
-                  title
-                  id
-                  uri
-                  featuredImage {
-                    node {
-                      altText
-                      gatsbyImage(width: 600, layout: FULL_WIDTH)
+    query FrontPageTopPosts {
+      allWp {
+        nodes {
+          themeGeneralSettings {
+            themeOptions {
+              frontPageTopPosts {
+                post {
+                  ... on WpPost {
+                    title
+                    id
+                    uri
+                    featuredImage {
+                      node {
+                        altText
+                        gatsbyImage(width: 600, layout: FULL_WIDTH)
+                      }
                     }
                   }
                 }
@@ -26,9 +27,7 @@ export const useFrontPageFeaturedPosts = () =>{
         }
       }
     }
-  }
-  `)
-  
+  `);
 
-    return data;
-}
+  return data;
+};

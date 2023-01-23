@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby";
 // import MainNav from "../MainNav/MainNav"
 import Header from "../Header/Header";
 
-import Sidebar from "../Sidebar/Sidebar";
+// import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,10 +26,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Partylicious`} />
-
-      <div className="flex">
-        <main className="text-lg font-light">{children}</main>
-        <Sidebar></Sidebar>
+      <div className="site-inner mx-auto max-w-screen-xl	">
+        {children}
+        {/* <Sidebar></Sidebar> */}
       </div>
       <footer></footer>
     </>

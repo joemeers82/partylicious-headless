@@ -1,18 +1,21 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
-    title: `Partylicious`,
-    description: `A food blog`,
-    author: `Sophia Assunta`,
-    siteUrl: `https://partylicious.net`,
+    title: process.env.SITE_TITLE,
+    description: process.env.SITE_DESCRIPTION,
+    author: process.env.SITE_AUTHOR,
+    siteUrl: process.env.SITE_URL,
+    LATEST_FORM_ACTION: process.env.LATEST_FORM_ACTION,
   },
   plugins: [
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        url: "http://partylicious.wp/graphql",
+        url: process.env.SITE_GRAPHQL,
       },
     },
     "gatsby-plugin-image",
@@ -27,6 +30,23 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-omni-font-loader",
+      options: {
+        enableListener: true,
+
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: "Montserrat",
+            file: `https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap`,
+          },
+        ],
+      },
     },
     "gatsby-plugin-postcss",
     {

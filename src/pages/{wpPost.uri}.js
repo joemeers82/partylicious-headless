@@ -1,11 +1,14 @@
 import React from "react";
-import ReactDomServer from 'react-dom/server'
 import { graphql } from "gatsby";
 import { Image } from "gatsby-plugin-image";
-const cheerio = require('cheerio');
-import "../styles/global.css";
-import HtmlReactParser from "html-react-parser";
 
+// import "../styles/global.css";
+
+import "../styles/tailwind.css";
+
+import HtmlReactParser from "html-react-parser";
+// import PostContent from "../components/PostContent/PostContent";
+import Sidebar from "../components/Sidebar/Sidebar";
 import Layout from "../components/Layout/Layout";
 export const Head = ({ data }) => {
   console.log(data.post.seo);
@@ -28,7 +31,6 @@ export const Head = ({ data }) => {
 const processImage = (node) => {
   // console.log(node);
   if (node.name === "img") {
-    console.log(node.attribs);
     const src = node.attribs.src;
     return (
       <Image
@@ -48,29 +50,23 @@ const processImage = (node) => {
   }
 };
 
-const removeInlineStyles = (html) => {
-  const $ = cheerio.load(html);
-  $('*[style]').removeAttr('style');
-  return $.html();
-};
-
 const PostTemplate = ({ data }) => {
-  
-
- 
   // const con = data.post.content;
-  
-  const cleanedHtml = HtmlReactParser(removeInlineStyles(data.post.content));
-  
-  const content = HtmlReactParser(cleanedHtml, {
+
+  const content = HtmlReactParser(data.post.content, {
     transform: processImage,
   });
 
   return (
     <Layout>
-      <h1 className="" dangerouslySetInnerHTML={{ __html: data.post.title }} />
-
-      <div className="flex flex-col p-8 font-lg font-light">{content}</div>
+      <div class="content-sidebar">
+        {/* <h1 className="" dangerouslySetInnerHTML={{ __html: data.post.title }} /> */}
+        <div className="flex content-sidebar-wrap">
+          {/* <PostContent>{content}</PostContent> */}
+          <main className="content">{content}</main>
+          <Sidebar></Sidebar>
+        </div>
+      </div>
     </Layout>
   );
 };

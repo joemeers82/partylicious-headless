@@ -3,6 +3,7 @@ import "../styles/tailwind.css";
 import FrontPageFeaturedPosts from "../components/FrontPageFeaturedPosts/FrontPageFeaturedPosts";
 import Posts from "../components/Posts/Posts";
 import PostsByCategory from "../components/PostsByCategory/PostsByCategory";
+import LatestForm from "../components/LatestForm/LatestForm";
 import Layout from "../components/Layout/Layout";
 
 const IndexPage = () => {
@@ -12,6 +13,7 @@ const IndexPage = () => {
         <div>
           <h1>Partylicious</h1>
           <FrontPageFeaturedPosts></FrontPageFeaturedPosts>
+          <LatestForm></LatestForm>
           <Posts></Posts>
           <PostsByCategory category="Appetizers" limit="6"></PostsByCategory>
           <PostsByCategory category="Frosting" limit="6"></PostsByCategory>

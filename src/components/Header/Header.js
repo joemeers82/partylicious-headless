@@ -4,6 +4,7 @@ import MainNav from "../MainNav/MainNav";
 
 const Header = ({ siteTitle }) => (
   <header
+    className="mx-auto max-w-screen-xl"
     style={{
       margin: `0 auto`,
       padding: `var(--space-4) var(--size-gutter)`,
