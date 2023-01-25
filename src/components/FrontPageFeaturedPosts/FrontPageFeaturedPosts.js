@@ -19,12 +19,25 @@ const FrontPageFeatured = () => {
         }}
       >
         {frontPageTopPosts.map((post) => (
-          <li key={post.post.id}>
-            {/* <img style ={{
-                            maxWidth: `100%`
-                        }}
-                        src={post.post.featuredImage.node.gatsbyImage.images.sources[1].srcSet} alt={post.post.featuredImage.node.altText}/> */}
-            {post.post.title}
+          <li key={post.post.id} className="">
+            <Link
+              to={post.post.uri}
+              className="hover:text-black transition duration-300 ease-in-out"
+            >
+              <img
+                style={{
+                  maxWidth: `100%`,
+                }}
+                className="object-cover h-[400px] w-[400px]"
+                src={
+                  post.post.featuredImage.node.gatsbyImage.images.sources[1]
+                    .srcSet
+                }
+                alt={post.post.featuredImage.node.altText}
+              />
+
+              {post.post.title}
+            </Link>
           </li>
         ))}
       </ul>

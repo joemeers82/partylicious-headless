@@ -13,9 +13,6 @@ const MainNav = () => {
     allWp.nodes[0].themeGeneralSettings.themeOptions.headerImage.altText;
   return (
     <>
-      <Link className="w-[30%]" to="/">
-        <img src={headerImage} alt={altTag} />
-      </Link>
       <ul className="flex justify-around w-[25%]">
         {recipeMenu.map((menuItem) => (
           <li key={menuItem.id}>

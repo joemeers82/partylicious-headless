@@ -63,7 +63,7 @@ const PostTemplate = ({ data }) => {
         {/* <h1 className="" dangerouslySetInnerHTML={{ __html: data.post.title }} /> */}
         <div className="flex content-sidebar-wrap">
           {/* <PostContent>{content}</PostContent> */}
-          <main className="content">{content}</main>
+          <main className="content w-[860px] p-8">{content}</main>
           <Sidebar></Sidebar>
         </div>
       </div>

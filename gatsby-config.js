@@ -1,7 +1,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-require("dotenv").config();
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
@@ -10,6 +12,9 @@ module.exports = {
     author: process.env.SITE_AUTHOR,
     siteUrl: process.env.SITE_URL,
     LATEST_FORM_ACTION: process.env.LATEST_FORM_ACTION,
+    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
+    ALGOLIA_ADMIN_KEY: process.env.ALGOLIA_ADMIN_KEY,
+    ALGOLIA_SEARCH_KEY: process.env.ALGOLIA_SEARCH_KEY,
   },
   plugins: [
     {
@@ -30,6 +35,14 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-plugin-algolia",
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries"),
+      },
     },
     {
       resolve: "gatsby-omni-font-loader",

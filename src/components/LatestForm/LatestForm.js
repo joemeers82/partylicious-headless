@@ -11,12 +11,15 @@ const LatestForm = ({ children }) => {
       }
     }
   `);
-  console.log(data.site.siteMetadata.LATEST_FORM_ACTION);
+
   return (
     <>
-      <section id="enews-ext-4" className="widget enews-widget">
-        <div className="widget-wrap">
-          <div className="enews enews-2-fields">
+      <section
+        id="enews-ext-4"
+        className="widget enews-widget flex border border-black border-5 w-full"
+      >
+        <div className="widget-wrap w-full">
+          <div className="enews enews-2-fields flex ">
             <p>DON'T MISS ALL THE LATEST!</p>
             <form
               id="subscribeenews-ext-4"

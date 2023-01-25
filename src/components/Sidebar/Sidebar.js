@@ -1,7 +1,7 @@
 import * as React from "react";
 import PostsByCategory from "../PostsByCategory/PostsByCategory";
 import { useSideBarOptionsQuery } from "../../hooks/useSideBarOptionsQuery";
-import Search from "../SearchBar/Searchbar";
+
 import { Link } from "gatsby";
 
 const Sidebar = () => {
@@ -17,17 +17,17 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="sidebar flex flex-col">
+      <aside className="sidebar flex flex-col w-[400px]">
         <h1>Sidebar</h1>
         <img
           alt="Sophia"
+          className="w-[140px] rounded-full mx-auto"
           src={aboutMeSection.aboutMeImage.gatsbyImage.images.fallback.src}
         />
         <div dangerouslySetInnerHTML={{ __html: aboutMeBody }}></div>
         <Link to={aboutMeLink.url}>{aboutMeLink.title}</Link>
         <hr></hr>
 
-        <Search></Search>
         <PostsByCategory category={sideBarPostCat} limit="4"></PostsByCategory>
         <h3>Popular Posts</h3>
         <ul>
