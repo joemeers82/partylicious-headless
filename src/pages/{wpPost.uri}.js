@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Image } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 // import "../styles/global.css";
 
@@ -33,7 +33,8 @@ const processImage = (node) => {
   if (node.name === "img") {
     const src = node.attribs.src;
     return (
-      <Image
+      <GatsbyImage
+        loading="lazy"
         fixed={{
           src,
           width: 300,

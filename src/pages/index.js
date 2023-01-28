@@ -14,7 +14,7 @@ const IndexPage = () => {
         <div>
           <FrontPageFeaturedPosts></FrontPageFeaturedPosts>
           <LatestForm></LatestForm>
-          <div className="flex content-sidebar-wrap">
+          <div className="flex content-sidebar-wrap flex-col lg:flex-row">
             <div className="w-[860px] p-8">
               <Posts></Posts>
               <PostsByCategory

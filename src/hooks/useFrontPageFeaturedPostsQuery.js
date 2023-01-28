@@ -16,7 +16,13 @@ export const useFrontPageFeaturedPosts = () => {
                     featuredImage {
                       node {
                         altText
-                        gatsbyImage(width: 600, layout: FULL_WIDTH)
+                        gatsbyImage(
+                          height: 400
+                          width: 400
+                          cropFocus: CENTER
+                          layout: FULL_WIDTH
+                          fit: COVER
+                        )
                       }
                     }
                   }

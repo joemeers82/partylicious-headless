@@ -14,16 +14,13 @@ const LatestForm = ({ children }) => {
 
   return (
     <>
-      <section
-        id="enews-ext-4"
-        className="widget enews-widget flex border border-black border-5 w-full"
-      >
-        <div className="widget-wrap w-full">
-          <div className="enews enews-2-fields flex ">
+      <section id="enews-ext-4" className="widget enews-widget flex pr-8 pl-8 ">
+        <div className="widget-wrap w-full border">
+          <div className="enews enews-2-fields flex w-full justify-between">
             <p>DON'T MISS ALL THE LATEST!</p>
             <form
               id="subscribeenews-ext-4"
-              className="enews-form"
+              className="enews-form w-full"
               action={data.site.siteMetadata.LATEST_FORM_ACTION}
               method="post"
               name="enews-ext-4"
@@ -39,7 +36,7 @@ const LatestForm = ({ children }) => {
               <input
                 type="email"
                 id="subbox"
-                className="enews-email"
+                className="enews-email "
                 aria-label="E-Mail Address"
                 placeholder="E-Mail Address"
                 name="EMAIL"
@@ -49,7 +46,7 @@ const LatestForm = ({ children }) => {
                 type="submit"
                 value="I'M IN!"
                 id="subbutton"
-                className="enews-submit"
+                className="enews-submit py-3 px-8 bg-red-200"
               />
             </form>
           </div>

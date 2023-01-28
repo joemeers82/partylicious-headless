@@ -7,10 +7,10 @@
 
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-// import MainNav from "../MainNav/MainNav"
 import Header from "../Header/Header";
 import Search from "../Search";
-const searchIndices = [{ name: `Posts`, title: `Posts` }];
+
+import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,9 +26,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Partylicious`} />
-      <Search indices={searchIndices} />
+
       <div className="site-inner my-8 mx-auto max-w-screen-xl	">{children}</div>
-      <footer></footer>
+      <Footer></Footer>
     </>
   );
 };

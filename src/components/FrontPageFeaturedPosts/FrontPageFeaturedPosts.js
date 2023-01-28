@@ -9,26 +9,17 @@ const FrontPageFeatured = () => {
 
   return (
     <>
-      <ul
-        style={{
-          margin: `0 auto`,
-          padding: `var(--space-4) var(--size-gutter)`,
-          display: `flex`,
-          alignItems: `center`,
-          justifyContent: `space-between`,
-        }}
-      >
+      <ul className="pr-8 pl-8 mx-auto flex gap-4 items-center justify-between flex-col lg:flex-row">
         {frontPageTopPosts.map((post) => (
-          <li key={post.post.id} className="">
+          <li key={post.post.id} className="w-full lg:w-1/3">
             <Link
               to={post.post.uri}
               className="hover:text-black transition duration-300 ease-in-out"
             >
               <img
-                style={{
-                  maxWidth: `100%`,
-                }}
-                className="object-cover h-[400px] w-[400px]"
+                width="400"
+                height="400"
+                className="object-cover max-h-[400px]"
                 src={
                   post.post.featuredImage.node.gatsbyImage.images.sources[1]
                     .srcSet
@@ -36,7 +27,7 @@ const FrontPageFeatured = () => {
                 alt={post.post.featuredImage.node.altText}
               />
 
-              {post.post.title}
+              <p className="p-3 text-center">{post.post.title}</p>
             </Link>
           </li>
         ))}

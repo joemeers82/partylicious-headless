@@ -1,23 +1,28 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby";
 
-export const useGetAllPosts = () =>{
-    const data = useStaticQuery(graphql`
-        query GetAllPosts {
-            allWpPost(sort: {date: DESC}){
-                nodes {
-                    id
-                    title
-                    slug
-                    uri
-                    categories {
-                        nodes {
-                          name
-                        }
-                      }
-                }
+export const useGetAllPosts = () => {
+  const data = useStaticQuery(graphql`
+    query GetAllPosts {
+      allWpPost(sort: { date: DESC }) {
+        nodes {
+          id
+          title
+          slug
+          uri
+          categories {
+            nodes {
+              name
             }
+          }
+          featuredImage {
+            node {
+              gatsbyImage(width: 400, formats: WEBP, fit: COVER)
+              altText
+            }
+          }
         }
-    `
-    )
-    return data
-}
+      }
+    }
+  `);
+  return data;
+};

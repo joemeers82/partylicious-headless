@@ -15,7 +15,7 @@ const theme = {
 };
 
 const Search = ({ indices }) => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -31,7 +31,10 @@ const Search = ({ indices }) => {
   const [hasFocus, setFocus] = useState(false);
   const searchClient = useMemo(
     () =>
-      algoliasearch(data.site.siteMetadata.ALGOLIA_APP_ID, data.site.siteMetadata.ALGOLIA_SEARCH_KEY),
+      algoliasearch(
+        data.site.siteMetadata.ALGOLIA_APP_ID,
+        data.site.siteMetadata.ALGOLIA_SEARCH_KEY
+      ),
     []
   );
 

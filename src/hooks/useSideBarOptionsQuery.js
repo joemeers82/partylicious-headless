@@ -26,6 +26,18 @@ export const useSideBarOptionsQuery = () => {
                 ... on WpPost {
                   id
                   title
+                  uri
+                  featuredImage {
+                    node {
+                      altText
+                      gatsbyImage(
+                        layout: FULL_WIDTH
+                        formats: WEBP
+                        height: 400
+                        width: 400
+                      )
+                    }
+                  }
                 }
               }
               sidebarRecipesCategory {
@@ -38,6 +50,7 @@ export const useSideBarOptionsQuery = () => {
       allWpWebStory(limit: 5, sort: { date: DESC }) {
         edges {
           node {
+            id
             title
             uri
             content
