@@ -23,6 +23,16 @@ module.exports = {
         url: process.env.SITE_GRAPHQL,
       },
     },
+    {
+      resolve: `gatsby-plugin-pinterest`,
+      options: {
+        saveButton: {
+          round: false,
+          tall: false,
+        },
+      },
+    },
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sharp",

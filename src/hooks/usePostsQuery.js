@@ -1,26 +1,25 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby";
 
-export const usePostsQuery = () =>{
+export const usePostsQuery = () => {
   const data = useStaticQuery(graphql`
     query ListPosts {
-        allWpPost(limit: 6) {
+      allWpPost(limit: 6) {
         edges {
-            node {
+          node {
             id
             title
             featuredImage {
-                node {
+              node {
                 altText
-                gatsbyImage(layout: FULL_WIDTH, width: 600, formats: WEBP)
-                }
+                gatsbyImage(width: 550)
+              }
             }
             uri
-            }
+          }
         }
-        }
+      }
     }
-  `)
-  
+  `);
 
-    return data;
-}
+  return data;
+};

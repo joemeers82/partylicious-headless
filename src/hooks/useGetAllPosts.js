@@ -16,7 +16,7 @@ export const useGetAllPosts = () => {
           }
           featuredImage {
             node {
-              gatsbyImage(width: 400, formats: WEBP, fit: COVER)
+              gatsbyImage(width: 400)
               altText
             }
           }

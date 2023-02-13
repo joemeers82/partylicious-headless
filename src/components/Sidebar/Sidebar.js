@@ -3,10 +3,10 @@ import PostsByCategory from "../PostsByCategory/PostsByCategory";
 import { useSideBarOptionsQuery } from "../../hooks/useSideBarOptionsQuery";
 // const searchIndices = [{ name: `Posts`, title: `Posts` }];
 // import Search from "../Search";
-
-// import Social from "../Social/Social";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Social from "../Social/Social";
 import { Link } from "gatsby";
-
+import { SidebarWrapper } from "./Sidebar.styles";
 const Sidebar = () => {
   const themeOptions =
     useSideBarOptionsQuery().allWp.nodes[0].themeGeneralSettings.themeOptions;
@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="sidebar flex flex-col w-[400px]">
+      <SidebarWrapper className="sidebar flex px-6 mx-auto flex-col w-[400px]">
         <img
           alt="Sophia"
           className="w-[140px] rounded-full mx-auto"
@@ -31,27 +31,22 @@ const Sidebar = () => {
         <hr></hr>
 
         <PostsByCategory
-          className="grid-cols-1"
+          className="grid-cols-1 sidebar-cat flex gap-6"
           category={sideBarPostCat}
           limit="4"
         ></PostsByCategory>
         {/* <Search indices={searchIndices} /> */}
         {/* <Social></Social> */}
         <h3>Popular Posts</h3>
-        <ul>
+        <ul className="sidebar-popular mt-20 flex flex-col gap-6">
           {popularPosts.map((post) => (
             <li key={post.id}>
               <Link to={post.uri}>
-                <img
-                  style={{
-                    maxWidth: `100%`,
-                  }}
-                  src={
-                    post.featuredImage.node.gatsbyImage.images.fallback.srcSet
-                  }
+                <GatsbyImage
+                  image={post.featuredImage.node.gatsbyImage}
                   alt={post.featuredImage.node.altText}
                 />
-                {post.title}
+                <p>{post.title}</p>
               </Link>
             </li>
           ))}
@@ -62,7 +57,7 @@ const Sidebar = () => {
             <li key={story.node.id}>{story.node.title}</li>
           ))}
         </ul>
-      </aside>
+      </SidebarWrapper>
     </>
   );
 };

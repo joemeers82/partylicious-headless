@@ -2,7 +2,8 @@ import * as React from "react";
 import { Link } from "gatsby";
 
 import { useGetAllPosts } from "../../hooks/useGetAllPosts";
-import { Image } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { PostsByCategoryUL } from "./PostsByCategory.styles";
 
 const PostsByCategory = ({ category, limit, className }) => {
   const { nodes } = useGetAllPosts().allWpPost;
@@ -23,22 +24,20 @@ const PostsByCategory = ({ category, limit, className }) => {
   return (
     <>
       <h1>{category} Recipes</h1>
-      <ul className={`grid grid-cols-3 ${className}`}>
+      <PostsByCategoryUL className={`grid grid-cols-3 ${className}`}>
         {posts().map((post) => (
-          <Link key={post.id} to={post.slug}>
-            <li className="col-span-1">
-              <img
-                style={{
-                  maxWidth: `100%`,
-                }}
-                src={post.featuredImage.node.gatsbyImage.images.fallback.srcSet}
+          <li className="col-span-1 flex">
+            <Link key={post.id} to={post.slug}>
+              <GatsbyImage
+                image={post.featuredImage.node.gatsbyImage}
                 alt={post.featuredImage.node.altText}
               />
-              {post.title}
-            </li>
-          </Link>
+
+              <p>{post.title}</p>
+            </Link>
+          </li>
         ))}
-      </ul>
+      </PostsByCategoryUL>
     </>
   );
 };
