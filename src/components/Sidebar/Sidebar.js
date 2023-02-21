@@ -51,12 +51,19 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-        <h3>Web Stories</h3>
-        <ul>
-          {webStories.map((story) => (
-            <li key={story.node.id}>{story.node.title}</li>
-          ))}
-        </ul>
+        <div className="web-stories">
+          <h3>Web Stories</h3>
+          <ul className="flex">
+            {webStories.map((story, index) => (
+              <li
+                className={`flex-1 ${index >= 3 ? "hidden" : ""}`}
+                key={story.node.id}
+              >
+                <Link to={story.node.uri}>{story.node.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </SidebarWrapper>
     </>
   );

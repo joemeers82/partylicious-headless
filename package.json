@@ -21,6 +21,7 @@
     "gatsby": "^5.3.2",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-algolia": "^1.0.3",
+    "gatsby-plugin-google-amp": "^1.0.4",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-pinterest": "^5.0.2",
     "gatsby-plugin-postcss": "^6.3.0",

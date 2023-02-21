@@ -26,8 +26,8 @@ const PostsByCategory = ({ category, limit, className }) => {
       <h1>{category} Recipes</h1>
       <PostsByCategoryUL className={`grid grid-cols-3 ${className}`}>
         {posts().map((post) => (
-          <li className="col-span-1 flex">
-            <Link key={post.id} to={post.slug}>
+          <li key={post.id} className="col-span-1 flex">
+            <Link key={post.id} to={post.uri}>
               <GatsbyImage
                 image={post.featuredImage.node.gatsbyImage}
                 alt={post.featuredImage.node.altText}

@@ -10,7 +10,7 @@ const FrontPageFeatured = () => {
 
   return (
     <>
-      <section class="my-8 mx-auto max-w-screen-xl">
+      <section className="my-8 mx-auto max-w-screen-xl">
         <ul className="pr-8 pl-8 mx-auto flex gap-6 items-center justify-between items-baseline flex-col lg:flex-row">
           {frontPageTopPosts.map((post) => (
             <li key={post.post.id} className="w-full lg:w-1/3">

@@ -17,6 +17,7 @@ module.exports = {
     ALGOLIA_SEARCH_KEY: process.env.ALGOLIA_SEARCH_KEY,
   },
   plugins: [
+    { resolve: "gatsby-plugin-google-amp" },
     {
       resolve: "gatsby-source-wordpress",
       options: {
